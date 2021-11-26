@@ -1,0 +1,4 @@
+uvicorn[standard]==0.15.0
+fastapi==0.70.0
+motor==2.5.1
+python-multipart==0.0.5
