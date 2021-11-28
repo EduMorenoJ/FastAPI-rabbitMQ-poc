@@ -7,5 +7,5 @@ class PayStatsSchema(BaseModel):
     p_month: date
     p_age: str
     p_gender: str
-    postal_code_id: str
-    id: str
+    postal_code_id: int
+    id: int

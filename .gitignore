@@ -5,4 +5,4 @@ wireframe.png
 postal_codes.sample.csv
 paystats.sample.csv
 __pycache__/
-*.py[cod]
+*.pyc

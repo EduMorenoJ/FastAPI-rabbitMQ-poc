@@ -6,4 +6,4 @@ class PayStats:
         self.model:PayStatsSchema = data
     
     def __eq__(self, __o: object) -> bool:
-        self.model.amount == __o.amount
+        self.model.amount == __o.model.amount

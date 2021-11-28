@@ -9,7 +9,16 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - mongodb_data_container:/data/db
+      - mongodb_data:/data/db
+  
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    ports:
+        - 5672:5672
+        - 15672:15672
+    volumes:
+        - rabbit_data:/var/lib/rabbitmq/
+        - rabbit_log:/var/log/rabbitmq
 
   api:
     build:
@@ -20,10 +29,33 @@ services:
       MONGO_INITDB_PORT: 27017
       MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: pass
+      RABBIT_INITDB_HOST: rabbitmq
+      RABBIT_INITDB_PORT: 5672
+      RABBIT_INITDB_ROOT_USERNAME: guest
+      RABBIT_INITDB_ROOT_PASSWORD: guest
     ports:
       - 8080:8080
-
-  
-
+    
+  persistor:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile.persistor
+    environment:
+      MONGO_INITDB_HOST: mongodb
+      MONGO_INITDB_PORT: 27017
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: pass
+      RABBIT_INITDB_HOST: rabbitmq
+      RABBIT_INITDB_PORT: 5672
+      RABBIT_INITDB_ROOT_USERNAME: guest
+      RABBIT_INITDB_ROOT_PASSWORD: guest
+    volumes:
+      - ./data/:/code/data
+    restart: 
+      on-failure
+      
 volumes: 
-  mongodb_data_container:
+  mongodb_data:
+  rabbit_data:
+  rabbit_log:
+  persistor_data:
