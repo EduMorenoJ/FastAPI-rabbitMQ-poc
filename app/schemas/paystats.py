@@ -1,6 +1,8 @@
 from pydantic import BaseModel
 from datetime import date
-#from bson import ObjectId
+
+# from bson import ObjectId
+
 
 class PayStatsSchema(BaseModel):
     amount: float
@@ -9,3 +11,8 @@ class PayStatsSchema(BaseModel):
     p_gender: str
     postal_code_id: int
     id: int
+
+
+class TotalAmountByPostalCodeSchema(BaseModel):
+    postal_code_id: int
+    total_amount: float
