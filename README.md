@@ -39,8 +39,10 @@ Para ejecutar el sistema basta con hacer:
 docker-compose up --build
 ```
 
-Esperar a que el sistema se termine de levantar por completo. Se veran algunos fallos de conexion del persistor hasta que consiga conectar con rabbit. Este metodo de reintentos es muy mejorable y lo he dejado asi por ser una demo.
+Esperar a que el sistema se termine de levantar por completo. Se veran algunos fallos de conexion del persistor hasta que consiga conectar con rabbit. Este metodo de reintentos es muy mejorable y lo he dejado asi por ser una demo. Otra cosa mejorable seria el separar los requirements.txt para que cada microservicio solo instale los que necesite. Tambien securizar la API que no he tenido tiempo, pero con FastAPI es bastante sencillo. 
 
 Para acceder a la API ir a [localhost:8080/docs](http://localhost:8080/docs) veremos un swagger totalmente funcional y con toda la documentacion de la API.
+
+Antes de nada, ir al endpoint de Load para que la api le comunique al persistor que cargue los datos en mongo.
 
 FastAPI me parece el mejor framework para el desarrollo de APIS que hay en python actualmente. Es increiblemente sencillo la construción de modelos con sus validaciones y la integración con una base de datos, junto con los modelos de Pydantic.
