@@ -4,7 +4,7 @@ from datetime import date
 # from bson import ObjectId
 
 
-class PayStatsSchema(BaseModel):
+class PaystatsSchema(BaseModel):
     amount: float
     p_month: date
     p_age: str

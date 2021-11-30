@@ -4,7 +4,7 @@ from typing import Any, AsyncGenerator, Dict, Final, Generator, List, Tuple
 from asgi_lifespan import LifespanManager
 from httpx import AsyncClient
 
-from app.schemas.paystats import PayStatsSchema
+from app.schemas.paystats import PaystatsSchema
 from datetime import date
 
 os.environ["MONGO_INITDB_HOST"] = "localhost"
@@ -27,7 +27,7 @@ async def client() -> AsyncGenerator[AsyncClient, None]:
 
 
 @pytest.fixture()
-def paystat_fixture() -> PayStatsSchema:
-    return PayStatsSchema(
+def paystat_fixture() -> PaystatsSchema:
+    return PaystatsSchema(
         amount=1.0, p_month=date.today(), p_age="dummy_age", p_gender="p_age", postal_code_id=0000, id=9999
     )
