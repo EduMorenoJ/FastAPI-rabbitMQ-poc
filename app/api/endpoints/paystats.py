@@ -5,7 +5,7 @@ from starlette.responses import JSONResponse
 from app.exceptions import NotFoundException
 from app.api.responses import NOT_FOUND
 from app.schemas.paystats import PaystatsSchema, TotalAmountByPostalCodeSchema
-from appclients_config.mongodb import get_client_db
+from app.clients_config.mongodb import get_client_db
 from app.repository.paystats_repository import paystats_repository
 
 router = APIRouter()

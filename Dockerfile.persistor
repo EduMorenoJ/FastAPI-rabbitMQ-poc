@@ -3,6 +3,6 @@ FROM python:3.9
 WORKDIR /code
 COPY ./requirements.txt /code/requirements.txt
 RUN pip install -r requirements.txt
-COPY ./app/db/ /code/persistor/db
+COPY ./app/clients_config/ /code/persistor/clients_config
 COPY ./persistor /code/persistor
 CMD ["python", "/code/persistor/main.py"]

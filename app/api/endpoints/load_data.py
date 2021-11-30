@@ -2,7 +2,7 @@ import json
 from enum import Enum
 from fastapi import Depends, APIRouter
 from aio_pika import Channel, Message, DeliveryMode
-from appclients_config.rabbitmq import get_channel_rb
+from app.clients_config.rabbitmq import get_channel_rb
 from app.api.responses import SERVER_ERROR, LOAD_STARTED
 
 # @router.post("/startLoad/")

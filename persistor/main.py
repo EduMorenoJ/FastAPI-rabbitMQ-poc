@@ -8,8 +8,8 @@ from aio_pika.channel import Channel
 from motor.motor_asyncio import AsyncIOMotorClient
 from aio_pika import IncomingMessage, Connection
 from asyncio import AbstractEventLoop
-from db.rabbitmq import get_async_client as rabbit_client
-from db.mongodb import get_async_client as mongo_client
+from clients_config.rabbitmq import get_async_client as rabbit_client
+from clients_config.mongodb import get_async_client as mongo_client
 
 PATH_TO_CSV: Final[str] = os.environ.get("PATH_TO_CSV", "./data")
 DB_NAME: Final[str] = os.environ.get("DB_NAME", "db")

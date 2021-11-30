@@ -6,7 +6,7 @@ from starlette.responses import JSONResponse
 from app.exceptions import NotFoundException
 from app.api.responses import NOT_FOUND
 from app.schemas.postal_codes import PostalCodeSchema, PotalCodeSchemaGeoJson
-from appclients_config.mongodb import get_client_db
+from app.clients_config.mongodb import get_client_db
 from app.repository.postal_code_repository import postal_code_repository
 
 router = APIRouter()
