@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import Dict, Any, List, Tuple
+from typing import Any, List
 
 
 class PostalCodeSchema(BaseModel):
@@ -10,4 +10,4 @@ class PostalCodeSchema(BaseModel):
 
 class PotalCodeSchemaGeoJson(PostalCodeSchema):
     type: str
-    coordinates: List[Tuple[Any]]
+    coordinates: List[Any]
