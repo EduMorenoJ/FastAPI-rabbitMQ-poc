@@ -14,7 +14,7 @@ PAYSTATS_ID_NOT_FOUND: Final[int] = 0000
 @pytest.mark.asyncio
 async def test_get_paystat_found(mocker, client: AsyncClient, paystat_fixture: PaystatsSchema):
 
-    mock = mocker.patch("app.api.endpoints.paystats.paystats_repository.get_by_id", return_value=Future()._result)
+    mock = mocker.patch("app.api.endpoints.paystats.paystats_repository.get_by_id")
     mock.return_value = paystat_fixture
     response = await client.get(f"api/v1/paystats/one/{PAYSTATS_ID_FOUND}")
 

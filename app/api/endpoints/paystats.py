@@ -43,7 +43,7 @@ async def get_paystat_by_postal_code(
     response_model=List[TotalAmountByPostalCodeSchema],
     summary="Return total paysats amount by postal code",
 )
-async def get_paystat_by_postal_code(
+async def get_paystat_total_amount_grouped_by_postal_code(
     db_client: AsyncIOMotorClient = Depends(get_client_db),
 ) -> List[TotalAmountByPostalCodeSchema]:
     return await paystats_repository.total_amount_grouped_by_postal_code(

@@ -1,6 +1,6 @@
 import os
 import pytest
-from typing import Any, AsyncGenerator, Dict, Final, Generator, List, Tuple
+from typing import AsyncGenerator
 from asgi_lifespan import LifespanManager
 from httpx import AsyncClient
 
